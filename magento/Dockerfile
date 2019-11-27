@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.1.33-fpm
 RUN apt-get update && apt-get install -y \
   cron \
   git \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
   libxslt1-dev \
   libsodium-dev \
   lsof \
-  mysql-client \
+  default-mysql-client \
   vim \
   zip \
   nginx \
