@@ -7,7 +7,7 @@ RUN apt-get install -y supervisor
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/custom.ini
+COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
 
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN mkdir -p /var/www/html
