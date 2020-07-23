@@ -1,0 +1,22 @@
+FROM php:7.1.32-apache-buster
+LABEL maintainer="Marcos Trotti <marcostrotti@gmail.com>"
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apt-get update && apt-get install -y libmagickwand-dev --no-install-recommends  && pecl install imagick && docker-php-ext-enable imagick
+
+
+RUN mkdir -p /var/www/html
+RUN mkdir -p /var/log/supervisor/nginx
+RUN mkdir -p /var/log/supervisor/php-fpm
+
+RUN mkdir -p /var/moodledata
+RUN mkdir -p /var/local/cache
+# Shared
+VOLUME /var/moodledata
+ 
+
+WORKDIR /var/www/html
+
+EXPOSE 80
+
+CMD ["apache2-foreground"]

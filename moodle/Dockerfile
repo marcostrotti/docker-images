@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-buster
+FROM php:7.1.32-fpm-buster
 LABEL maintainer="Marcos Trotti <marcostrotti@gmail.com>"
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql
